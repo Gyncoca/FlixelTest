@@ -1,6 +1,7 @@
 package;
 
 import flixel.addons.editors.ogmo.FlxOgmoLoader;
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -9,6 +10,7 @@ import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import flixel.util.FlxRect;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -22,9 +24,9 @@ class PlayState extends FlxState
 	 */
 	override public function create():Void
 	{
-		_map = new FlxOgmoLoader("assets/data/level1.oel");
-		map = _map.loadTilemap("assets/images/path.png", 16, 16, "Path");
 		
+		_map = new FlxOgmoLoader("assets/data/level1.oel");
+		map = _map.loadTilemap("assets/images/path.png", 64, 64, "Path");
 		add(map);
 		super.create();
 	}
