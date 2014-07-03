@@ -1,9 +1,12 @@
 package;
 
+import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
+import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
 
@@ -12,11 +15,17 @@ import flixel.util.FlxMath;
  */
 class PlayState extends FlxState
 {
+	private var _map:FlxOgmoLoader;
+	private var map:FlxTilemap;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
+		_map = new FlxOgmoLoader("assets/data/level1.oel");
+		map = _map.loadTilemap("assets/images/path.png", 16, 16, "Path");
+		
+		add(map);
 		super.create();
 	}
 	
